@@ -14,7 +14,14 @@ type ClientFormValues = {
   email?: string | null;
   phone?: string | null;
   notes?: string | null;
+  dob?: Date | string | null;
 };
+
+function formatDob(dob: Date | string | null | undefined): string {
+  if (!dob) return "";
+  if (dob instanceof Date) return dob.toISOString().slice(0, 10);
+  return dob.slice(0, 10);
+}
 
 export function ClientForm({
   mode,
