@@ -54,6 +54,10 @@ export function ClientForm({
         <Input id="phone" name="phone" defaultValue={initial?.phone ?? ""} />
       </div>
       <div>
+        <Label htmlFor="dob">Date of birth</Label>
+        <Input id="dob" name="dob" type="date" defaultValue={formatDob(initial?.dob)} />
+      </div>
+      <div>
         <Label htmlFor="notes">Notes</Label>
         <Textarea id="notes" name="notes" rows={4} defaultValue={initial?.notes ?? ""} />
       </div>
