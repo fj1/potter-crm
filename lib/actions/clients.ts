@@ -14,6 +14,7 @@ function parseForm(formData: FormData) {
     email: formData.get("email") ?? "",
     phone: formData.get("phone") ?? "",
     notes: formData.get("notes") ?? "",
+    dob: formData.get("dob") ?? "",
   });
 }
 

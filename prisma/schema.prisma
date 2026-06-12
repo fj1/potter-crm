@@ -96,6 +96,7 @@ model Client {
   email     String?
   phone     String?
   notes     String?  @db.Text
+  dob       DateTime? @db.Date
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

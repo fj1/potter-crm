@@ -14,7 +14,14 @@ type ClientFormValues = {
   email?: string | null;
   phone?: string | null;
   notes?: string | null;
+  dob?: Date | string | null;
 };
+
+function formatDob(dob: Date | string | null | undefined): string {
+  if (!dob) return "";
+  if (dob instanceof Date) return dob.toISOString().slice(0, 10);
+  return dob.slice(0, 10);
+}
 
 export function ClientForm({
   mode,
@@ -45,6 +52,10 @@ export function ClientForm({
       <div>
         <Label htmlFor="phone">Phone</Label>
         <Input id="phone" name="phone" defaultValue={initial?.phone ?? ""} />
+      </div>
+      <div>
+        <Label htmlFor="dob">Date of birth</Label>
+        <Input id="dob" name="dob" type="date" defaultValue={formatDob(initial?.dob)} />
       </div>
       <div>
         <Label htmlFor="notes">Notes</Label>
