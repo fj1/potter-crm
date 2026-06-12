@@ -10,6 +10,13 @@ export const clientInputSchema = z.object({
     .or(z.literal("").transform(() => undefined)),
   phone: z.string().trim().max(40).optional().or(z.literal("").transform(() => undefined)),
   notes: z.string().trim().max(5000).optional().or(z.literal("").transform(() => undefined)),
+  dob: z
+    .string()
+    .trim()
+    .optional()
+    .or(z.literal("").transform(() => undefined))
+    .transform((s) => (s ? new Date(s) : undefined))
+    .refine((d) => d === undefined || !Number.isNaN(d.getTime()), { message: "Invalid date" }),
 });
 
 export type ClientInput = z.infer<typeof clientInputSchema>;
