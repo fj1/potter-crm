@@ -32,6 +32,10 @@ export default async function ClientDetailPage({ params }: { params: Promise<{ i
               <dt className="text-stone-500">Phone</dt>
               <dd>{client.phone ?? "—"}</dd>
             </div>
+            <div>
+              <dt className="text-stone-500">Date of birth</dt>
+              <dd>{client.dob ? client.dob.toLocaleDateString() : "—"}</dd>
+            </div>
           </dl>
         </Card>
         <Card className="md:col-span-2">
